@@ -1,17 +1,22 @@
 # MBRLIST entry format
 
+```
 1-8  d5c5e6e2d9c34040
        Member name = `NEWSRC  `
 
 9    0f
        C byte from directory block entry  = 15 half words of user data
+       The least significant 5 bits contain the half word count for user data.
+```
 
 Byte 10 is where the ISPF stats information (user data) will start, if any.
+
 ## ISPF statistics entry
 
 This is taken from this link: https://www.ibm.com/docs/en/zos/2.1.0?topic=di-ispf-statistics-entry-in-pds-directory
 
 ``` 
+Bytes  Data and description
 1-2    0100      VER=01 MOD=00 
 3      00        FLAGS=00
 4      57        MOD-TIME=57 
@@ -33,3 +38,5 @@ This is taken from this link: https://www.ibm.com/docs/en/zos/2.1.0?topic=di-isp
 28-30  404040 (blank, bit 3 in 'C' flag was off)
        e700000000000000000000000000000000000000000000000000000000000000
 ```
+
+
